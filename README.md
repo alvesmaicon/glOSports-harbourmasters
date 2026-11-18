@@ -8,11 +8,27 @@ Status: work in progress, tested on one GA36-MB (A33) only.
 
 ## Installing
 
-Each port is an app for goodluckOS's App Installer (System Settings > System > App Installer).
+Each port is an app for goodluckOS's App Installer (System Settings > System > App Installer); on an image without it, see below.
 
 1. **The port.** Download `ShipOfHarkinian-*.zip` (Ocarina of Time) and/or `2Ship2Harkinian-*.zip` (Majora's Mask) from [Releases](https://github.com/alvesmaicon/glOSports-harbourmasters/releases), copy it to the `apps` folder of the console's HOME and install it in the App Installer. It shows up in the Games tab.
 2. **Your ROM.** Copy it to HOME, as a `.z64`, `.n64` or `.v64` file or a zip of one. Ship of Harkinian takes N64 1.0 to 1.2 or PAL, GameCube or Master Quest; 2 Ship 2 Harkinian the N64 USA version (1.0) or the GameCube USA one. The app knows the version by the CRC in the ROM's header (`app/<port>/roms.txt`); the game checks the whole file.
 3. **On the console,** open the game. The first time, the launcher finds your ROM in HOME and starts the game with it: the game makes its assets from it by itself, in its ROM Extraction window, then starts. Without a ROM it takes, a screen says what to copy.
+
+**Without the App Installer** (it is not in every goodluckOS image yet): unzip each zip into the `apps` folder of HOME, so that there is `HOME/apps/ShipOfHarkinian` or `HOME/apps/2Ship2Harkinian`, add the game to `HOME/apps.puppy` and restart the console, since the launcher reads that file when it starts. The launcher script needs its own folder as the working directory:
+
+```ini
+[ENTRY]
+CATEGORY=Games
+NAME=The Legend of Zelda: Ocarina of Time
+COMMAND=cd /home/player/apps/ShipOfHarkinian && sh soh.sh
+ICON=/home/player/apps/ShipOfHarkinian/icon.png
+
+[ENTRY]
+CATEGORY=Games
+NAME=The Legend of Zelda: Majora's Mask
+COMMAND=cd /home/player/apps/2Ship2Harkinian && sh 2ship.sh
+ICON=/home/player/apps/2Ship2Harkinian/icon.png
+```
 
 SELECT opens the port's menu (the D-pad moves, A picks, B goes back), where every setting is; the apps start with it on, since the game has no other way to reach it on the console. Aiming in first person starts inverted, as on the N64: Settings > Controls in Ocarina of Time (a patch puts the option there; Ship of Harkinian has it only in the bindings window), Enhancements > Camera in Majora's Mask.
 
