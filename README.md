@@ -47,7 +47,7 @@ GL_JOBS=3 ./build.sh oot game     # the armhf binary, out/soh/soh.elf (~40 min o
 
 ## Credits and licenses
 
-Ship of Harkinian and 2 Ship 2 Harkinian are by [HarbourMasters](https://github.com/HarbourMasters): 2 Ship 2 Harkinian is CC0, and Ship of Harkinian's repository has no license file. Both run on their [libultraship](https://github.com/Kenix3/libultraship) (Kenix3 and contributors, MIT) and build their assets with Torch (Lywx, MIT), ZAPDTR (the Zelda Reverse Engineering Team, MIT) and OTRExporter (HarbourMasters, MIT); [libzip](https://libzip.org/) is BSD-3-Clause. The games are Nintendo's, from your own ROM.
+Ship of Harkinian and 2 Ship 2 Harkinian are by [HarbourMasters](https://github.com/HarbourMasters): 2 Ship 2 Harkinian is CC0, and Ship of Harkinian's repository has no license file: its code is theirs, and the Ocarina of Time app is offered as a port of their work, to be taken down if they ask. Both run on their [libultraship](https://github.com/Kenix3/libultraship) (Kenix3 and contributors, MIT) and build their assets with Torch (Lywx, MIT), ZAPDTR (the Zelda Reverse Engineering Team, MIT) and OTRExporter (HarbourMasters, MIT); [libzip](https://libzip.org/) is BSD-3-Clause. The games are Nintendo's, from your own ROM.
 
 The apps' screen uses [Pixelify Sans](https://github.com/eifetx/Pixelify-Sans) (SIL Open Font License); each zip's `licenses` folder has the licenses of what it carries.
 
