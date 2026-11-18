@@ -14,6 +14,8 @@ Each port is an app for goodluckOS's App Installer (System Settings > System > A
 2. **Your ROM.** Copy it to HOME, as a `.z64`, `.n64` or `.v64` file or a zip of one. Ship of Harkinian takes N64 1.0 to 1.2 or PAL, GameCube or Master Quest; 2 Ship 2 Harkinian the N64 USA version (1.0) or the GameCube USA one. The app knows the version by the CRC in the ROM's header (`app/<port>/roms.txt`); the game checks the whole file.
 3. **On the console,** open the game. The first time, the launcher finds your ROM in HOME and starts the game with it: the game makes its assets from it by itself, in its ROM Extraction window, then starts. Without a ROM it takes, a screen says what to copy.
 
+SELECT opens the port's menu (the D-pad moves, A picks, B goes back), where every setting is; the apps start with it on, since the game has no other way to reach it on the console. Aiming in first person starts inverted, as on the N64: Settings > Controls in Ocarina of Time (a patch puts the option there; Ship of Harkinian has it only in the bindings window), Enhancements > Camera in Majora's Mask.
+
 Saves, settings and the assets made from the ROM stay in `HOME/.config/soh` and `HOME/.config/2ship`, outside the apps: updates and uninstalls keep them. A port installed by hand before, in `HOME/ports/soh` or `HOME/ports/2ship`, hands its assets, settings and saves to the app on the first start, without the ROM.
 
 ## Building
@@ -37,8 +39,8 @@ GL_JOBS=3 ./build.sh oot game     # the armhf binary, out/soh/soh.elf (~40 min o
 |---|---|
 | `build.sh`, `Dockerfile` | the build, in the `glosports-harbourmasters` image; sources and build trees in the `harbourmasters-work` volume |
 | `patches/lus` | libultraship: the OpenGL ES 2 renderer, 32-bit heap pointers |
-| `patches/soh`, `patches/2ship` | the ports: Torch's command line, the mixer's NEON on 32-bit ARM, audio, and SoH on to the game after extracting |
-| `app/` | `common.sh` (finds the ROM, starts the game with it the first time), and per port its launcher, `app.puppy`, `roms.txt`, first settings (480p, bilinear, the cartridge's look) and own icon (`tools/icons.py`) |
+| `patches/soh`, `patches/2ship` | the ports: Torch's command line, the mixer's NEON on 32-bit ARM, audio, SoH on to the game after extracting and its aiming axes in Settings > Controls |
+| `app/` | `common.sh` (finds the ROM, starts the game with it the first time), and per port its launcher, `app.puppy`, `roms.txt`, first settings (480p, bilinear, the cartridge's look, the menu on SELECT) and own icon (`tools/icons.py`) |
 | `native/setup.c` | the first start's screen when there is no ROM to take (SDL2, Pixelify Sans, from glOSports-stardew) |
 | `cmake/2ship-deps.cmake` | tinyxml2 and spdlog for 2 Ship 2 Harkinian, built static |
 | `tools/` | `perf.sh` (CPU per thread and GPU on the console), `cover.py` (launcher covers from your own art) |

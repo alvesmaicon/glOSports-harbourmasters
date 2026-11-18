@@ -1,0 +1,19 @@
+--- soh-a/soh/soh/SohGui/SohMenuSettings.cpp
++++ soh-b/soh/soh/SohGui/SohMenuSettings.cpp
+@@ -458,6 +458,16 @@
+         .WindowName("Configure Controller")
+         .HideInSearch(true)
+         .Options(WindowButtonOptions().Tooltip("Enables the separate Bindings Window."));
++    // The aiming axes, also here: the bindings window is hard to reach with a controller
++    AddWidget(path, "Aiming/First-Person Camera", WIDGET_SEPARATOR_TEXT);
++    AddWidget(path, "Invert Aiming X Axis", WIDGET_CVAR_CHECKBOX)
++        .CVar(CVAR_SETTING("Controls.InvertAimingXAxis"))
++        .Options(CheckboxOptions().Tooltip("Inverts the Camera X Axis in:\n-First-Person/C-Up view\n-Weapon Aiming"));
++    AddWidget(path, "Invert Aiming Y Axis", WIDGET_CVAR_CHECKBOX)
++        .CVar(CVAR_SETTING("Controls.InvertAimingYAxis"))
++        .Options(CheckboxOptions()
++                     .Tooltip("Inverts the Camera Y Axis in:\n-First-Person/C-Up view\n-Weapon Aiming")
++                     .DefaultValue(true));
+ 
+     // Input Viewer
+     path.sidebarName = "Input Viewer";

@@ -13,6 +13,7 @@
         },
         "gSettings": {
             "BootSequence": 1,
+            "ControlNav": 1,
             "LowResMode": 0,
             "TextureFilter": 1
         }
