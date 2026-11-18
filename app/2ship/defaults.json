@@ -1,12 +1,12 @@
 {
     "CVars": {
-        "gControlNav": 1,
         "gEnhancements": {
             "Graphics": {
                 "AuthenticLogo": 1
             }
         },
         "gSettings": {
+            "ControlNav": 1,
             "LowResMode": 0,
             "TextureFilter": 1
         }
