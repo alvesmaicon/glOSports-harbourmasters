@@ -2,11 +2,11 @@ Ocarina of Time (Ship of Harkinian) and Majora's Mask (2 Ship 2 Harkinian) for g
 
 **You need** a GA36-MB with goodluckOS and your ROM: for Ocarina of Time a version Ship of Harkinian takes (N64 1.0 to 1.2 or PAL, GameCube or Master Quest), for Majora's Mask the N64 USA version (1.0) or the GameCube USA one.
 
-1. Copy `ShipOfHarkinian-*.zip` and/or `2Ship2Harkinian-*.zip` to the `apps` folder of the console's HOME (over USB, where the console shows up as a drive, or with the card in a card reader) and install them in the App Installer (System Settings > System > App Installer). They show up in the Games tab. Without the App Installer, see below.
+1. Copy `ShipOfHarkinian-*.zip` and/or `2Ship2Harkinian-*.zip` to the `apps` folder of the console's HOME (over USB, where the console shows up as a drive, or with the card in a card reader) and install them in the App Installer (System Settings > System > App Installer). They show up in the launcher. Without the App Installer, see below.
 2. Copy your ROM to HOME, as a `.z64`, `.n64` or `.v64` file or a zip of one.
 3. Open the game. The first time, it finds your ROM and makes its assets from it, in a window that shows how far it has got; then the game starts, and from then on it starts straight away.
 
-**Without the App Installer** (it is not in every goodluckOS image yet): unzip each zip into the `apps` folder of HOME, so that there is `HOME/apps/ShipOfHarkinian` or `HOME/apps/2Ship2Harkinian`, add the game to `HOME/apps.puppy` as below and restart the console, since the launcher reads that file when it starts. Steps 2 and 3 are the same.
+**Without the App Installer** (it is not in every goodluckOS image yet): unzip each zip into the `apps` folder of HOME, so that there is `HOME/apps/ShipOfHarkinian` or `HOME/apps/2Ship2Harkinian`, add the game to `HOME/apps.puppy` as below and restart the console, since the launcher reads that file when it starts; it shows up among the games. Steps 2 and 3 are the same.
 
 ```ini
 [ENTRY]
