@@ -1,8 +1,8 @@
 # Ship of Harkinian and 2 Ship 2 Harkinian for goodluckOS
 
-Ocarina of Time and Majora's Mask, natively on the GA36-MB (Allwinner A33, 32-bit ARM, Mali-400, 512 MB of RAM) under [goodluckOS](https://github.com/CodeZombie/goodluckOS), from HarbourMasters' PC ports: [Ship of Harkinian](https://github.com/HarbourMasters/Shipwright) 9.3.0 and [2 Ship 2 Harkinian](https://github.com/HarbourMasters/2ship2harkinian) 5.0.1. Their renderer needs OpenGL ES 3, which the Mali-400 lacks, so this port brings one written for OpenGL ES 2, a fix for 32-bit builds (the sky, the logo and the text went missing) and audio fixes. Ocarina of Time runs at 480p and 20 FPS, the cartridge's frame rate.
+HarbourMasters' PC ports [Ship of Harkinian](https://github.com/HarbourMasters/Shipwright) 9.3.0 (Ocarina of Time) and [2 Ship 2 Harkinian](https://github.com/HarbourMasters/2ship2harkinian) 5.0.1 (Majora's Mask), natively on the GA36-MB (Allwinner A33, 32-bit ARM, Mali-400, 512 MB of RAM) under [goodluckOS](https://github.com/CodeZombie/goodluckOS). Their renderer needs OpenGL ES 3, which the Mali-400 lacks, so this port brings one written for OpenGL ES 2, a fix for 32-bit builds (the sky, the logo and the text went missing) and audio fixes. Ship of Harkinian runs at 480p and 20 FPS, the cartridge's frame rate.
 
-**Nothing of the games is in this repository.** You supply your own ROM: Ocarina of Time in a version Ship of Harkinian supports (N64 1.0 to 1.2 or PAL, or GameCube, Master Quest included), Majora's Mask in its N64 USA version.
+**Nothing of the games is in this repository.** You supply your own ROM, in a version the port supports: for Ship of Harkinian N64 1.0 to 1.2 or PAL, or GameCube, Master Quest included; for 2 Ship 2 Harkinian the N64 USA version.
 
 Status: work in progress, tested on one GA36-MB (A33) only.
 
@@ -10,7 +10,7 @@ Status: work in progress, tested on one GA36-MB (A33) only.
 
 Each port is an app for goodluckOS's App Installer, in the launcher's row with the restart and power off buttons; on an image without it, see below.
 
-1. **The port.** Download `ShipOfHarkinian-*.zip` (Ocarina of Time) and/or `2Ship2Harkinian-*.zip` (Majora's Mask) from [Releases](https://github.com/alvesmaicon/glOSports-harbourmasters/releases), copy it to the `apps` folder of the console's HOME and install it in the App Installer. It shows up in the launcher.
+1. **The port.** Download `ShipOfHarkinian-*.zip` and/or `2Ship2Harkinian-*.zip` from [Releases](https://github.com/alvesmaicon/glOSports-harbourmasters/releases), copy it to the `apps` folder of the console's HOME and install it in the App Installer. It shows up in the launcher.
 2. **Your ROM.** Copy it to HOME, as a `.z64`, `.n64` or `.v64` file or a zip of one. Ship of Harkinian takes N64 1.0 to 1.2 or PAL, GameCube or Master Quest; 2 Ship 2 Harkinian the N64 USA version (1.0) or the GameCube USA one. The app knows the version by the CRC in the ROM's header (`app/<port>/roms.txt`); the game checks the whole file.
 3. **On the console,** open the game. The first time, the launcher finds your ROM in HOME and starts the game with it: the game makes its assets from it by itself, in its ROM Extraction window, then starts. Without a ROM it takes, a screen says what to copy.
 
@@ -19,18 +19,18 @@ Each port is an app for goodluckOS's App Installer, in the launcher's row with t
 ```ini
 [ENTRY]
 CATEGORY=Games
-NAME=The Legend of Zelda: Ocarina of Time
+NAME=Ship of Harkinian
 COMMAND=cd /home/player/apps/ShipOfHarkinian && sh soh.sh
 ICON=/home/player/apps/ShipOfHarkinian/icon.png
 
 [ENTRY]
 CATEGORY=Games
-NAME=The Legend of Zelda: Majora's Mask
+NAME=2 Ship 2 Harkinian
 COMMAND=cd /home/player/apps/2Ship2Harkinian && sh 2ship.sh
 ICON=/home/player/apps/2Ship2Harkinian/icon.png
 ```
 
-SELECT opens the port's menu (the D-pad moves, A picks, B goes back), where every setting is; the apps start with it on, since the game has no other way to reach it on the console. Aiming in first person starts inverted, as on the N64: Settings > Controls in Ocarina of Time (a patch puts the option there; Ship of Harkinian has it only in the bindings window), Enhancements > Camera in Majora's Mask.
+SELECT opens the port's menu (the D-pad moves, A picks, B goes back), where every setting is; the apps start with it on, since the game has no other way to reach it on the console. Aiming in first person starts inverted, as on the N64: Settings > Controls in Ship of Harkinian (a patch puts the option there; upstream has it only in the bindings window), Enhancements > Camera in 2 Ship 2 Harkinian.
 
 Saves, settings and the assets made from the ROM stay in `HOME/.config/soh` and `HOME/.config/2ship`, outside the apps: updates and uninstalls keep them. A port installed by hand before, in `HOME/ports/soh` or `HOME/ports/2ship`, hands its assets, settings and saves to the app on the first start, without the ROM.
 
@@ -63,7 +63,7 @@ GL_JOBS=3 ./build.sh oot game     # the armhf binary, out/soh/soh.elf (~40 min o
 
 ## Credits and licenses
 
-Ship of Harkinian and 2 Ship 2 Harkinian are by [HarbourMasters](https://github.com/HarbourMasters): 2 Ship 2 Harkinian is CC0, and Ship of Harkinian's repository has no license file: its code is theirs, and the Ocarina of Time app is offered as a port of their work, to be taken down if they ask. Both run on their [libultraship](https://github.com/Kenix3/libultraship) (Kenix3 and contributors, MIT) and build their assets with Torch (Lywx, MIT), ZAPDTR (the Zelda Reverse Engineering Team, MIT) and OTRExporter (HarbourMasters, MIT); [libzip](https://libzip.org/) is BSD-3-Clause. The games are Nintendo's, from your own ROM.
+Ship of Harkinian and 2 Ship 2 Harkinian are by [HarbourMasters](https://github.com/HarbourMasters): 2 Ship 2 Harkinian is CC0, and Ship of Harkinian's repository has no license file: its code is theirs, and this repository's Ship of Harkinian app is offered as a port of their work, to be taken down if they ask. Both run on their [libultraship](https://github.com/Kenix3/libultraship) (Kenix3 and contributors, MIT) and build their assets with Torch (Lywx, MIT), ZAPDTR (the Zelda Reverse Engineering Team, MIT) and OTRExporter (HarbourMasters, MIT); [libzip](https://libzip.org/) is BSD-3-Clause. The games are Nintendo's, from your own ROM.
 
 The apps' screen uses [Pixelify Sans](https://github.com/eifetx/Pixelify-Sans) (SIL Open Font License); each zip's `licenses` folder has the licenses of what it carries.
 
